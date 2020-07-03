@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food/details_page.dart';
 import 'package:food/dummy_data.dart';
 import 'package:food/widgets/category_items.dart';
 
@@ -16,6 +17,9 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
+      routes: {
+        'route': (context) => DetailsPage(),
+      },
     );
   }
 }

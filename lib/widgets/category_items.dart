@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:food/details_page.dart';
 
 class CategoryItem extends StatelessWidget {
   final String categoryName;
@@ -10,8 +9,13 @@ class CategoryItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => DetailsPage(categoryName)));
+        Navigator.of(context).pushNamed('route', arguments: {
+          'name': categoryName,
+          'color': color,
+        });
+
+//        Navigator.push(context,
+//            MaterialPageRoute(builder: (context) => DetailsPage(categoryName)));
       },
       child: Padding(
         padding: const EdgeInsets.only(top: 10, left: 5, right: 5),
