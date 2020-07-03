@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food/dummy_data.dart';
+import 'package:food/widgets/category_items.dart';
 
 void main() {
   runApp(MyApp());
@@ -56,12 +58,13 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Text(widget.title),
         ),
         body: GridView(
-            children: <Widget>[],
+            children: DUMMY_DATA
+                .map((categoryData) =>
+                    CategoryItem(categoryData.categoryName, categoryData.color))
+                .toList(),
             gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
               maxCrossAxisExtent: 200,
               childAspectRatio: 3 / 2,
-              mainAxisSpacing: 20,
-              crossAxisSpacing: 20,
             )));
   }
 }

@@ -7,15 +7,18 @@ class CategoryItem extends StatelessWidget {
   CategoryItem(this.categoryName, this.color);
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text(categoryName),
-      padding: EdgeInsets.all(20),
-      decoration: BoxDecoration(gradient:LinearGradient(colors: [
-        Colors.blue,
-        Colors.green
-      ],
-      begin: Alignment.topLeft,
-      end: Alignment.bottomRight)),
+    return Padding(
+      padding: const EdgeInsets.only(top: 10, left: 5, right: 5),
+      child: Container(
+        child: Text(categoryName),
+        padding: EdgeInsets.all(20),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            gradient: LinearGradient(
+                colors: [color, Colors.green],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight)),
+      ),
     );
   }
 }
