@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food/dummy_data.dart';
+import 'package:food/widgets/meal_item.dart';
 
 class DetailsPage extends StatelessWidget {
 //  String categoryName;
@@ -20,43 +21,8 @@ class DetailsPage extends StatelessWidget {
       ),
       body: ListView.builder(
         itemBuilder: (context, index) {
-          return Card(
-              color: Colors.pinkAccent,
-              child: Column(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Stack(
-                      alignment: Alignment(0.0, 0.0),
-                      children: <Widget>[
-                        Center(child: CircularProgressIndicator()),
-                        Container(
-                          child: Container(
-                            height: 200,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                fit: BoxFit.fill,
-                                image:
-                                    NetworkImage(categoryMeals[index].imageUrl),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: FittedBox(
-                      child: Text(
-                        categoryMeals[index].title,
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.white),
-                      ),
-                    ),
-                  ),
-                ],
-              ));
+          return MealItem(
+              categoryMeals[index].imageUrl, categoryMeals[index].title);
         },
         itemCount: categoryMeals.length,
       ),
