@@ -42,8 +42,8 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: GridView(
           children: DUMMY_DATA
-              .map((categoryData) =>
-                  CategoryItem(categoryData.categoryName, categoryData.color))
+              .map((categoryData) => CategoryItem(categoryData.categoryName,
+                  categoryData.color, categoryData.id))
               .toList(),
           gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 200,

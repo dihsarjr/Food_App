@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 class CategoryItem extends StatelessWidget {
   final String categoryName;
   final Color color;
+  final String id;
 
-  CategoryItem(this.categoryName, this.color);
+  CategoryItem(this.categoryName, this.color, this.id);
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).pushNamed('route', arguments: {
+          'id': id,
           'name': categoryName,
           'color': color,
         });

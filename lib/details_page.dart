@@ -10,12 +10,15 @@ class DetailsPage extends StatelessWidget {
     final categoryName = roteArgs['name'];
 
     return Scaffold(
-        appBar: AppBar(
-          title: Text(categoryName),
-        ),
-        body: Container(
-          height: 500,
-          color: Colors.black,
-        ));
+      appBar: AppBar(
+        title: Text(categoryName),
+      ),
+      body: ListView.builder(
+        itemBuilder: (context, index) {
+          return Text('data');
+        },
+        itemCount: 50,
+      ),
+    );
   }
 }
