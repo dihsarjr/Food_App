@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food/models/meal_model.dart';
 
+import '../meal_details.dart';
+
 class MealItem extends StatelessWidget {
   final String image;
   final String title;
@@ -43,12 +45,17 @@ class MealItem extends StatelessWidget {
     }
   }
 
-  void _onTap() {}
+//  void _onTap() {
+//    Navigator.push(context, MaterialPageRoute(builder: (context) => MealDetails(title)));
+//  }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: _onTap,
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => MealDetails(title)));
+      },
       child: Card(
         elevation: 5,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
