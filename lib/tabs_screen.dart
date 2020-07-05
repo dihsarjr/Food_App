@@ -18,11 +18,9 @@ class _TabsScreenState extends State<TabsScreen> {
             title: Text('Meals'),
             bottom: TabBar(tabs: <Widget>[
               Tab(
-                icon: Icon(Icons.category),
                 text: 'Category',
               ),
               Tab(
-                icon: Icon(Icons.favorite_border),
                 text: 'Favorite',
               ),
             ]),
