@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food/details_page.dart';
 import 'package:food/dummy_data.dart';
+import 'package:food/tabs_screen.dart';
 import 'package:food/widgets/category_items.dart';
 
 void main() {
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+//      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: TabsScreen(),
       routes: {
         'route': (context) => DetailsPage(),
       },
@@ -25,9 +27,9 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
+  MyHomePage({
+    Key key,
+  }) : super(key: key);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -36,19 +38,15 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
+    return GridView(
+      children: DUMMY_DATA
+          .map((categoryData) => CategoryItem(
+              categoryData.title, categoryData.color, categoryData.id))
+          .toList(),
+      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+        maxCrossAxisExtent: 200,
+        childAspectRatio: 3 / 2,
       ),
-      body: GridView(
-          children: DUMMY_DATA
-              .map((categoryData) => CategoryItem(
-                  categoryData.title, categoryData.color, categoryData.id))
-              .toList(),
-          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 200,
-            childAspectRatio: 3 / 2,
-          )),
     );
   }
 }
