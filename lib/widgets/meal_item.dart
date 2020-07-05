@@ -10,8 +10,10 @@ class MealItem extends StatelessWidget {
   final int duration;
   final Complexity complexity;
   final Affordability affordability;
+  final List<String> ingredients;
+  final List<String> steps;
   MealItem(this.image, this.title, this.duration, this.complexity,
-      this.affordability);
+      this.affordability, this.ingredients, this.steps);
 
   String get complexityText {
     switch (complexity) {
@@ -52,9 +54,13 @@ class MealItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+//      Navigation for the mealsDetailsPage
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => MealDetails(title)));
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) =>
+                    MealDetails(title, image, ingredients, steps)));
       },
       child: Card(
         elevation: 5,

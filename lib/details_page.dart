@@ -26,7 +26,9 @@ class DetailsPage extends StatelessWidget {
               categoryMeals[index].title,
               categoryMeals[index].duration,
               categoryMeals[index].complexity,
-              categoryMeals[index].affordability);
+              categoryMeals[index].affordability,
+              categoryMeals[index].ingredients,
+              categoryMeals[index].steps);
         },
         itemCount: categoryMeals.length,
       ),
