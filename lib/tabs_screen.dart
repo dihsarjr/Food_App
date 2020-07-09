@@ -9,6 +9,13 @@ class TabsScreen extends StatefulWidget {
 }
 
 class _TabsScreenState extends State<TabsScreen> {
+  Widget buildListTile(String title, IconData icon) {
+    return ListTile(
+      leading: Icon(icon),
+      title: Text(title),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -24,6 +31,19 @@ class _TabsScreenState extends State<TabsScreen> {
                 text: 'Favorite',
               ),
             ]),
+          ),
+          drawer: Drawer(
+            child: Column(
+              children: <Widget>[
+                Container(
+                  height: 200,
+                  color: Colors.pink,
+                ),
+                buildListTile('home', Icons.home),
+                buildListTile('settings', Icons.settings),
+                buildListTile('favorite', Icons.favorite),
+              ],
+            ),
           ),
           body: TabBarView(
             children: <Widget>[
