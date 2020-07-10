@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food/settings.dart';
 
 import 'favorite_screen.dart';
 import 'main.dart';
@@ -9,10 +10,13 @@ class TabsScreen extends StatefulWidget {
 }
 
 class _TabsScreenState extends State<TabsScreen> {
-  Widget buildListTile(String title, IconData icon) {
-    return ListTile(
-      leading: Icon(icon),
-      title: Text(title),
+  Widget buildListTile(String title, IconData icon, Function tapHandler) {
+    return FlatButton(
+      child: ListTile(
+        leading: Icon(icon),
+        title: Text(title),
+        onTap: tapHandler,
+      ),
     );
   }
 
@@ -39,9 +43,15 @@ class _TabsScreenState extends State<TabsScreen> {
                   height: 200,
                   color: Colors.pink,
                 ),
-                buildListTile('home', Icons.home),
-                buildListTile('settings', Icons.settings),
-                buildListTile('favorite', Icons.favorite),
+                buildListTile('home', Icons.home, () {
+                  _tap();
+                }),
+                buildListTile('settings', Icons.settings, () {
+                  _tapb();
+                }),
+                buildListTile('favorite', Icons.favorite, () {
+                  _tapc();
+                }),
               ],
             ),
           ),
@@ -52,5 +62,32 @@ class _TabsScreenState extends State<TabsScreen> {
             ],
           ),
         ));
+  }
+
+  _tap() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => TabsScreen(),
+      ),
+    );
+  }
+
+  _tapb() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => SettingsPage(),
+      ),
+    );
+  }
+
+  _tapc() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => Favorite(),
+      ),
+    );
   }
 }
