@@ -57,10 +57,13 @@ class MealItem extends StatelessWidget {
 //      Navigation for the mealsDetailsPage
       onTap: () {
         Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) =>
-                    MealDetails(title, image, ingredients, steps)));
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        MealDetails(title, image, ingredients, steps)))
+            .then((value) {
+          print(value);
+        });
       },
       child: Card(
         elevation: 5,
