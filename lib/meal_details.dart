@@ -48,7 +48,7 @@ class MealDetails extends StatelessWidget {
                 child: ListView.builder(
                   itemBuilder: (context, index) {
                     return Card(
-                      color: Colors.yellow,
+                      color: Colors.pink,
                       child: ListTile(
                         leading: CircleAvatar(
                             child: Text(
@@ -106,7 +106,10 @@ class MealDetails extends StatelessWidget {
           ),
         ),
         floatingActionButton: FloatingActionButton(
-            child: Icon(Icons.delete,color: Colors.pink,),
+            child: Icon(
+              Icons.delete,
+              color: Colors.pink,
+            ),
             onPressed: () {
               Navigator.of(context).pop(title);
             }),
