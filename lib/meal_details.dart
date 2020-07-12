@@ -84,7 +84,7 @@ class MealDetails extends StatelessWidget {
                 child: ListView.builder(
                   itemBuilder: (context, index) {
                     return Card(
-                      color: Colors.pinkAccent,
+                      color: Colors.pink,
                       child: ListTile(
                         leading: CircleAvatar(
                             child: Text(
